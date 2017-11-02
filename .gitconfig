@@ -23,7 +23,7 @@
 [mergetool]
 	prompt = false
 [core]
-	editor = nvim
+	editor = vim
 	excludesfile = /Users/anhphuc/.global_ignore
 	mergeoptions = --no-edit
 [github]
