@@ -1,0 +1,41 @@
+[push]
+  default = simple
+[user]
+  name = Anh Phuc
+  email = anhphuc.ngo@gmail.com
+  signingKey = 20FF323550016673!
+[alias]
+        lg = log --graph --oneline --decorate --all
+        ll = log --graph --oneline --decorate
+        st = status
+        df = diff HEAD
+        ds = diff --stat HEAD
+        dt = difftool
+[diff]
+	tool = vimdiff
+[difftool]
+        prompt = false
+        ; Be able to abort all diffs with `:cq` or `:cquit`
+        trustExitCode = true
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+[core]
+	editor = vim
+	excludesfile = /Users/anhphuc/.global_ignore
+	mergeoptions = --no-edit
+[github]
+	user = nhap96
+[alias]
+        ignore = update-index --skip-worktree
+        ; ignore = update-index --assume-unchanged
+        unignore = update-index --no-assume-unchanged
+        ignored = !git ls-files -v | grep "^[[:lower:]]"
+[rerere]
+	enabled = true
+[commit]
+	gpgsign = false
+[pass]
+	signcommits = true
