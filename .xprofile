@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Disable Thinkpad touchpad
+# Name obtained using xinput
+xinput disable "SynPS/2 Synaptics TouchPad"
+
+bin/keyboard.sh
