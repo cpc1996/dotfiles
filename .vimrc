@@ -2,6 +2,7 @@
 " source $VIMRUNTIME/vimrc_example.vim
 runtime! vimrc_example.vim
 
+set number
 set relativenumber
 
 " Mac OS X and Windows: both unnamed and unnamedplus.
