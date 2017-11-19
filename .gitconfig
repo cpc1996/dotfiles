@@ -24,7 +24,7 @@
 	prompt = false
 [core]
 	editor = vim
-	excludesfile = /Users/anhphuc/.global_ignore
+	excludesfile = ~/.gitignore_global
 	mergeoptions = --no-edit
 [github]
 	user = nhap96
