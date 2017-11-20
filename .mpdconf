@@ -4,6 +4,13 @@
 # https://wiki.archlinux.org/index.php/Music_Player_Daemon/Troubleshooting#Binding_to_IPV6_before_IPV4
 bind_to_address "127.0.0.1"
 
+# This is actually not needed since mpd will auto detect itself, but is included
+# however to avoid logging to screen.
+audio_output {
+  type "pulse"
+  name "pulse audio"
+}
+
 # Files and directories #######################################################
 #
 # This setting controls the top directory which MPD will search to discover the
