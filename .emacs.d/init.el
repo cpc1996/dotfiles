@@ -26,7 +26,7 @@
  '(font-use-system-font t)
  '(package-selected-packages
    (quote
-    (avy racket-mode org-download org-ref org cdlatex auctex)))
+    (avy racket-mode org-download org-ref org cdlatex auctex undo-tree)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 
@@ -88,6 +88,7 @@
 (setq-default TeX-master nil)
 
 
+(global-undo-tree-mode)
 
 (require 'org)
 
