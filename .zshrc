@@ -35,7 +35,8 @@ fi
 # }}}
 
 # Environment variables {{{
-export TERM=xterm-256color
+#export TERM=xterm-256color # When using with tmux, this breaks scrolling in ncmpcpp help interface
+export TERM=screen-256color
 export EDITOR=vim
 # }}}
 
