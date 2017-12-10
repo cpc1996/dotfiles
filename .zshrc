@@ -47,6 +47,8 @@ eval "$(fasd --init auto)"
 
 # dotfiles manager {{{
 # https://news.ycombinator.com/item?id=11070797
+# After cloning to new system
+#   config config status.showUntrackedFiles no
 alias config='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 # }}}
 
