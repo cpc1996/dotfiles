@@ -2,7 +2,7 @@
 # TODO: Auto clone zgen
 
 # load zgen
-export ZGEN_RESET_ON_CHANGE=($HOME/.zshrc)
+export ZGEN_RESET_ON_CHANGE=$HOME/.zshrc
 source "${HOME}/.zgen/zgen.zsh"
 
 # if the init scipt doesn't exist
