@@ -6,6 +6,24 @@ def_key "ctrl-n"
 def_key "ctrl-p"
   scroll_up
 
+def_key "ctrl-v"
+  page_down
+
+def_key "alt-v"
+  page_up
+
+def_key "ctrl-b"
+  previous_column
+
+def_key "ctrl-f"
+  next_column
+
+def_key "ctrl-a"
+  move_home
+
+def_key "ctrl-e"
+  move_end
+
 ##############################################################
 ## This is the example bindings file. Copy it to            ##
 ## ~/.ncmpcpp/bindings or $XDG_CONFIG_HOME/ncmpcpp/bindings ##

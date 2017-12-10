@@ -6,6 +6,8 @@ visualizer_in_stereo = "yes"
 visualizer_type = "spectrum"
 visualizer_look = "+|"
 
+volume_change_step = 1
+
 # Available values: classic, alternative.
 #
 user_interface = alternative
