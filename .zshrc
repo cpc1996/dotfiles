@@ -50,6 +50,7 @@ eval "$(fasd --init auto)"
 # After cloning to new system
 #   config config status.showUntrackedFiles no
 alias config='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+alias cf=config
 # }}}
 
 # fzf {{{
