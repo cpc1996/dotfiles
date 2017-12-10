@@ -64,6 +64,7 @@ v() {
     local file
     file="$(fasd -Rfl "$1" | fzf -1 -0 --no-sort +m)" && ${EDITOR} ${file} || return 1
 }
+alias ve='EDITOR=emacs v'
 unalias z
 # fasd & fzf change directory - jump using `fasd` if given argument, filter output of `fasd` using `fzf` else
 z() {
@@ -127,6 +128,12 @@ fo() {
 alias fe='EDITOR=emacs fo'
 # }}}
 
+# Integration with ripgrep {{{
+# http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+#}}}
+
 # }}}
 
 # emacs {{{
@@ -147,6 +154,7 @@ function emacs {
     done
     setsid emacsclient -n -a /usr/bin/emacs ${args[*]}
 } 
+alias em=emacs
 # }}}
 
 neofetch
