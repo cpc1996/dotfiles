@@ -52,11 +52,6 @@ alias config='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 
 # fzf {{{
 
-# Auto-completion and Key bindings {{{
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-# }}}
-
 # fasd {{{
 # fasd & fzf change directory - open best matched file using `fasd` if given argument, filter output of `fasd` using `fzf` else
 v() {
@@ -158,4 +153,4 @@ function emacs {
 alias em=emacs
 # }}}
 
-neofetch
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
