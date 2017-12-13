@@ -156,4 +156,6 @@ function emacs {
 alias em=emacs
 # }}}
 
+eval "$(hub alias -s)"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
