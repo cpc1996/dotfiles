@@ -217,6 +217,7 @@ for_window [class="(E|e)macs"] border none
 for_window [class="(M|m)ate-terminal"] border none
 for_window [class="(C|c)hromium"] border none
 for_window [class="jetbrains-idea-ce"] border none
+focus_follows_mouse no
 # }}}
 
 # Custom floating windows {{{
