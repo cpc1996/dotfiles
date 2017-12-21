@@ -158,4 +158,6 @@ alias em=emacs
 
 eval "$(hub alias -s)"
 
+export PATH=~/.npm-global/bin:$PATH
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
