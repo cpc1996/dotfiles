@@ -1,39 +1,3 @@
-# zgen {{{
-# TODO: Auto clone zgen
-
-# load zgen
-export ZGEN_RESET_ON_CHANGE=$HOME/.zshrc
-source "${HOME}/.zgen/zgen.zsh"
-
-# if the init scipt doesn't exist
-if ! zgen saved; then
-  echo "Creating a zgen save"
-
-  # prezto options
-  zgen prezto editor key-bindings 'emacs'
-  zgen prezto prompt theme 'sorin'
-  zgen prezto '*:*' color 'yes'
-  zgen prezto tmux:auto-start local 'yes'
-
-  # prezto and modules
-  zgen prezto
-  zgen prezto git
-  zgen prezto tmux
-  zgen prezto command-not-found
-  zgen prezto syntax-highlighting
-  zgen prezto history-substring-search
-  zgen prezto autosuggestions
-  
-  # plugins
-  zgen load piotryordanov/fzf-mpd
-  zgen load changyuheng/zsh-interactive-cd zsh-interactive-cd.plugin.zsh
-  zgen load clvv/fasd
-
-  # generate the init script from plugins above
-  zgen save
-fi
-# }}}
-
 # Environment variables {{{
 #export TERM=xterm-256color # When using with tmux, this breaks scrolling in ncmpcpp help interface
 export TERM=screen-256color
@@ -161,3 +125,39 @@ eval "$(hub alias -s)"
 export PATH=~/.npm-global/bin:$PATH
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# zgen {{{
+# TODO: Auto clone zgen
+
+# load zgen
+export ZGEN_RESET_ON_CHANGE=$HOME/.zshrc
+source "${HOME}/.zgen/zgen.zsh"
+
+# if the init scipt doesn't exist
+if ! zgen saved; then
+  echo "Creating a zgen save"
+
+  # prezto options
+  zgen prezto editor key-bindings 'emacs'
+  zgen prezto prompt theme 'sorin'
+  zgen prezto '*:*' color 'yes'
+  zgen prezto tmux:auto-start local 'yes'
+
+  # prezto and modules
+  zgen prezto
+  zgen prezto git
+  zgen prezto tmux
+  zgen prezto command-not-found
+  zgen prezto syntax-highlighting
+  zgen prezto history-substring-search
+  zgen prezto autosuggestions
+  
+  # plugins
+  zgen load piotryordanov/fzf-mpd
+  zgen load changyuheng/zsh-interactive-cd zsh-interactive-cd.plugin.zsh
+  zgen load clvv/fasd
+
+  # generate the init script from plugins above
+  zgen save
+fi
+# }}}
