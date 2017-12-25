@@ -156,7 +156,7 @@ function emacs {
 alias em=emacs
 # }}}
 
-eval "$(hub alias -s)"
+command -v hub >/dev/null 2>&1 && eval "$(hub alias -s)"
 
 export PATH=~/.npm-global/bin:$PATH
 
