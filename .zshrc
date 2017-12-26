@@ -19,7 +19,7 @@ if ! zgen saved; then
   zgen prezto editor key-bindings 'emacs'
   zgen prezto prompt theme 'sorin'
   zgen prezto '*:*' color 'yes'
-  zgen prezto tmux:auto-start local 'yes'
+  #zgen prezto tmux:auto-start local 'yes'
 
   # prezto and modules
   zgen prezto
@@ -166,3 +166,6 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+# added by travis gem
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
