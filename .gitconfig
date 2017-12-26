@@ -8,6 +8,7 @@
         lg = log --graph --oneline --decorate --all
         ll = log --graph --oneline --decorate
         st = status
+        rs = reset
         df = diff HEAD
         ds = diff --stat HEAD
         dt = difftool
