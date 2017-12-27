@@ -1,0 +1,2 @@
+! "Set the matching algorithm. (normal, regex, glob, fuzzy)" Set from: Default
+rofi.matching:                       fuzzy
