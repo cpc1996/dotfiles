@@ -31,8 +31,8 @@ if ! zgen saved; then
   zgen prezto autosuggestions
   
   # plugins
-  zgen load piotryordanov/fzf-mpd
-  zgen load changyuheng/zsh-interactive-cd zsh-interactive-cd.plugin.zsh
+  #zgen load piotryordanov/fzf-mpd
+  #zgen load changyuheng/zsh-interactive-cd zsh-interactive-cd.plugin.zsh
   zgen load clvv/fasd
 
   # generate the init script from plugins above
@@ -40,9 +40,11 @@ if ! zgen saved; then
 fi
 # }}}
 
+# zgen plugins initialization {{{
 # fasd {{{
 export PATH=$PATH:${HOME}/.zgen/clvv/fasd-master
 eval "$(fasd --init auto)"
+# }}}
 # }}}
 
 # dotfiles manager {{{
