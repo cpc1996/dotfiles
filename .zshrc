@@ -34,15 +34,17 @@ if ! zgen saved; then
   #zgen load piotryordanov/fzf-mpd
   #zgen load changyuheng/zsh-interactive-cd zsh-interactive-cd.plugin.zsh
   zgen load clvv/fasd
+  zgen load carnager/rofi-pass
 
   # generate the init script from plugins above
   zgen save
 fi
 # }}}
 
+export PATH=$PATH:~/bin
+
 # zgen plugins initialization {{{
 # fasd {{{
-export PATH=$PATH:${HOME}/.zgen/clvv/fasd-master
 eval "$(fasd --init auto)"
 # }}}
 # }}}

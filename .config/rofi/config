@@ -1,2 +1,3 @@
 ! "Set the matching algorithm. (normal, regex, glob, fuzzy)" Set from: Default
 rofi.matching:                       fuzzy
+rofi.theme: /usr/share/rofi/themes//gruvbox-dark-soft.rasi
