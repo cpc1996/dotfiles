@@ -9,7 +9,25 @@
 
 (define-abbrev-table 'TeX-output-mode-abbrev-table '())
 
+(define-abbrev-table 'awk-mode-abbrev-table
+  '(
+   ))
+
 (define-abbrev-table 'bibtex-mode-abbrev-table '())
+
+(define-abbrev-table 'bookmark-bmenu-mode-abbrev-table '())
+
+(define-abbrev-table 'bookmark-edit-annotation-mode-abbrev-table '())
+
+(define-abbrev-table 'c++-mode-abbrev-table
+  '(
+   ))
+
+(define-abbrev-table 'c-mode-abbrev-table
+  '(
+   ))
+
+(define-abbrev-table 'calc-trail-mode-abbrev-table '())
 
 (define-abbrev-table 'calendar-mode-abbrev-table '())
 
@@ -23,6 +41,8 @@
 
 (define-abbrev-table 'doctex-mode-abbrev-table '())
 
+(define-abbrev-table 'edebug-eval-mode-abbrev-table '())
+
 (define-abbrev-table 'edit-abbrevs-mode-abbrev-table '())
 
 (define-abbrev-table 'elisp-byte-code-mode-abbrev-table '())
@@ -33,12 +53,142 @@
 
 (define-abbrev-table 'global-abbrev-table
   '(
-    ("cor" "corollary" nil 3)
+    ("-dim" "\\dim" nil 3)
+    ("-iff" "if and only if" nil 34)
+    ("-int" "integer" nil 5)
+    ("-ints" "integers" nil 0)
+    ("-l8" "\\infty" nil 4)
+    ("00" "$0$" nil 3)
+    ("aa" "$a$" nil 88)
+    ("bb" "$b$" nil 32)
+    ("cc" "$c$" nil 10)
+    ("dd" "$d$" nil 6)
+    ("def" "definition" nil 25)
+    ("ee" "$e$" nil 4)
+    ("fa" "for all" nil 33)
+    ("fe" "for each" nil 17)
+    ("ff" "$f$" nil 43)
+    ("fs" "for some" nil 10)
+    ("fv" "for every" nil 15)
+    ("ge" "\\ge" nil 6)
+    ("gg" "$g$" nil 5)
+    ("hh" "$h$" nil 1)
+    ("ii" "$i$" nil 17)
+    ("jj" "$j$" nil 4)
+    ("kk" "$k$" nil 4)
+    ("l1" "$1$" nil 10)
+    ("lcap" "\\cap" nil 1)
+    ("lcup" "\\cup" nil 5)
+    ("le" "\\le" nil 52)
+    ("liff" "\\iff" nil 8)
+    ("lin" "\\in" nil 66)
+    ("ll" "$l$" nil 10)
+    ("ltimes" "\\times" nil 2)
+    ("lto" "\\to" nil 69)
+    ("mm" "$m$" nil 8)
+    ("ne" "\\neq" nil 26)
+    ("neq" "\\neq" nil 11)
+    ("nn" "$n$" nil 49)
+    ("pm" "\\pm" nil 9)
+    ("pp" "$p$" nil 16)
+    ("qq" "$q$" nil 9)
+    ("rr" "$r$" nil 10)
+    ("soln" "solution" nil 2)
+    ("ss" "$s$" nil 20)
+    ("st" "such that" nil 19)
+    ("te" "there exist" nil 7)
+    ("tes" "there exists" nil 7)
+    ("thm" "theorem" nil 8)
+    ("tt" "$t$" nil 13)
+    ("uu" "$u$" nil 1)
+    ("vv" "$v$" nil 45)
+    ("wh" "we have" nil 2)
+    ("ww" "$w$" nil 9)
+    ("xa" "$\\alpha$" nil 5)
+    ("xb" "$\\beta$" nil 0)
+    ("xd" "$\\delta$" nil 0)
+    ("xe" "$\\epsilon$" nil 0)
+    ("xg" "$\\gamma$" nil 0)
+    ("xx" "$x$" nil 7)
+    ("yy" "$y$" nil 1)
+    ("zz" "$z$" nil 2)
    ))
+
+(define-abbrev-table 'helm-grep-mode-abbrev-table '())
+
+(define-abbrev-table 'helm-major-mode-abbrev-table '())
+
+(define-abbrev-table 'helm-moccur-mode-abbrev-table '())
 
 (define-abbrev-table 'help-mode-abbrev-table '())
 
-(define-abbrev-table 'latex-mode-abbrev-table '())
+(define-abbrev-table 'idl-mode-abbrev-table '())
+
+(define-abbrev-table 'java-mode-abbrev-table
+  '(
+   ))
+
+(define-abbrev-table 'latex-mode-abbrev-table
+  '(
+    ("-dim" "\\dim" nil 3)
+    ("-iff" "if and only if" nil 31)
+    ("-int" "integer" nil 5)
+    ("-ints" "integers" nil 0)
+    ("-l8" "\\infty" nil 4)
+    ("00" "$0$" nil 4)
+    ("aa" "$a$" nil 89)
+    ("bb" "$b$" nil 32)
+    ("cc" "$c$" nil 10)
+    ("dd" "$d$" nil 8)
+    ("def" "definition" nil 20)
+    ("ee" "$e$" nil 8)
+    ("fa" "for all" nil 33)
+    ("fe" "for each" nil 17)
+    ("ff" "$f$" nil 44)
+    ("fs" "for some" nil 10)
+    ("fv" "for every" nil 15)
+    ("ge" "\\ge" nil 9)
+    ("gg" "$g$" nil 5)
+    ("hh" "$h$" nil 1)
+    ("ii" "$i$" nil 18)
+    ("jj" "$j$" nil 4)
+    ("l1" "$1$" nil 10)
+    ("lcap" "\\cap" nil 1)
+    ("lcup" "\\cup" nil 5)
+    ("le" "\\le" nil 60)
+    ("liff" "\\iff" nil 8)
+    ("lin" "\\in" nil 63)
+    ("ll" "$l$" nil 7)
+    ("ltimes" "\\times" nil 2)
+    ("lto" "\\to" nil 70)
+    ("mm" "$m$" nil 7)
+    ("ne" "\\neq" nil 25)
+    ("neq" "\\neq" nil 11)
+    ("nn" "$n$" nil 51)
+    ("pm" "\\pm" nil 10)
+    ("pp" "$p$" nil 16)
+    ("qq" "$q$" nil 9)
+    ("rr" "$r$" nil 10)
+    ("soln" "solution" nil 0)
+    ("ss" "$s$" nil 15)
+    ("st" "such that" nil 23)
+    ("te" "there exist" nil 8)
+    ("tes" "there exists" nil 7)
+    ("thm" "theorem" nil 8)
+    ("tt" "$t$" nil 8)
+    ("uu" "$u$" nil 3)
+    ("vv" "$v$" nil 46)
+    ("wh" "we have" nil 2)
+    ("ww" "$w$" nil 12)
+    ("xa" "$\\alpha$" nil 5)
+    ("xb" "$\\beta$" nil 0)
+    ("xd" "$\\delta$" nil 0)
+    ("xe" "$\\epsilon$" nil 0)
+    ("xg" "$\\gamma$" nil 0)
+    ("xx" "$x$" nil 8)
+    ("yy" "$y$" nil 1)
+    ("zz" "$z$" nil 1)
+   ))
 
 (define-abbrev-table 'lisp-mode-abbrev-table '())
 
@@ -46,70 +196,25 @@
 
 (define-abbrev-table 'messages-buffer-mode-abbrev-table '())
 
+(define-abbrev-table 'objc-mode-abbrev-table
+  '(
+   ))
+
 (define-abbrev-table 'occur-edit-mode-abbrev-table '())
 
 (define-abbrev-table 'occur-mode-abbrev-table '())
 
 (define-abbrev-table 'org-export-stack-mode-abbrev-table '())
 
-(define-abbrev-table 'org-mode-abbrev-table
-  '(
-    ("00" "$0$" nil 2)
-    ("aa" "$a$" nil 69)
-    ("bb" "$b$" nil 29)
-    ("cc" "$c$" nil 6)
-    ("dd" "$d$" nil 6)
-    ("def" "definition" nil 20)
-    ("ee" "$e$" nil 3)
-    ("fa" "for all" nil 21)
-    ("fe" "for each" nil 10)
-    ("ff" "$f$" nil 10)
-    ("fs" "for some" nil 10)
-    ("fv" "for every" nil 8)
-    ("ge" "\\ge" nil 5)
-    ("gg" "$g$" nil 3)
-    ("hh" "$h$" nil 1)
-    ("iff" "if and only if" nil 28)
-    ("ii" "$i$" nil 12)
-    ("int" "integer" nil 0)
-    ("ints" "integers" nil 0)
-    ("jj" "$j$" nil 2)
-    ("l1" "$1$" nil 10)
-    ("l8" "\\infty" nil 3)
-    ("lcap" "\\cap" nil 1)
-    ("lcup" "\\cup" nil 5)
-    ("le" "\\le" nil 29)
-    ("liff" "\\iff" nil 8)
-    ("lin" "\\in" nil 45)
-    ("ll" "$l$" nil 4)
-    ("ltimes" "\\times" nil 2)
-    ("lto" "\\to" nil 53)
-    ("mm" "$m$" nil 4)
-    ("ne" "\\neq" nil 15)
-    ("neq" "\\neq" nil 11)
-    ("nn" "$n$" nil 33)
-    ("pm" "\\pm" nil 8)
-    ("pp" "$p$" nil 12)
-    ("qq" "$q$" nil 9)
-    ("rr" "$r$" nil 8)
-    ("soln" "solution" nil 0)
-    ("ss" "$s$" nil 2)
-    ("st" "such that" nil 8)
-    ("te" "there exist" nil 6)
-    ("tes" "there exists" nil 5)
-    ("thm" "theorem" nil 8)
-    ("tt" "$t$" nil 2)
-    ("uu" "$u$" nil 1)
-    ("vv" "$v$" nil 0)
-    ("wh" "we have" nil 2)
-    ("xx" "$x$" nil 2)
-    ("yy" "$y$" nil 1)
-    ("zz" "$z$" nil 1)
-   ))
+(define-abbrev-table 'org-mode-abbrev-table '())
 
 (define-abbrev-table 'outline-mode-abbrev-table '())
 
 (define-abbrev-table 'package-menu-mode-abbrev-table '())
+
+(define-abbrev-table 'pike-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'plain-tex-mode-abbrev-table '())
 
@@ -117,11 +222,25 @@
 
 (define-abbrev-table 'prog-mode-abbrev-table '())
 
+(define-abbrev-table 'racket-describe-mode-abbrev-table '())
+
+(define-abbrev-table 'racket-logger-mode-abbrev-table '())
+
+(define-abbrev-table 'racket-mode-abbrev-table '())
+
+(define-abbrev-table 'racket-profile-mode-abbrev-table '())
+
+(define-abbrev-table 'racket-repl-mode-abbrev-table '())
+
 (define-abbrev-table 'select-tags-table-mode-abbrev-table '())
+
+(define-abbrev-table 'sh-mode-abbrev-table '())
 
 (define-abbrev-table 'shell-mode-abbrev-table '())
 
 (define-abbrev-table 'slitex-mode-abbrev-table '())
+
+(define-abbrev-table 'snippet-mode-abbrev-table '())
 
 (define-abbrev-table 'special-mode-abbrev-table '())
 
