@@ -1,42 +1,44 @@
 [push]
   default = simple
 [user]
-  name = Anh Phuc
+  name = Anh-Phuc Ngo
   email = anhphuc.ngo@gmail.com
   signingKey = 20FF323550016673!
 [alias]
-        lg = log --graph --oneline --decorate --all
-        ll = log --graph --oneline --decorate
-        st = status
-        rs = reset
-        df = diff HEAD
-        ds = diff --stat HEAD
-        dt = difftool
+  lg = log --graph --oneline --decorate --all
+  ll = log --graph --oneline --decorate
+  st = status
+  rs = reset
+  df = diff -R HEAD
+  ds = diff --stat HEAD
+  dt = difftool
+  change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
 [diff]
-	tool = vimdiff
+  tool = vimdiff
 [difftool]
-        prompt = false
+  prompt = false
         ; Be able to abort all diffs with `:cq` or `:cquit`
-        trustExitCode = true
+  trustExitCode = true
 [merge]
-	tool = vimdiff
-	conflictstyle = diff3
+  tool = vimdiff
+  conflictstyle = diff3
 [mergetool]
-	prompt = false
+  prompt = false
 [core]
-	editor = vim
-	excludesfile = ~/.gitignore_global
-	mergeoptions = --no-edit
+  editor = vim
+  excludesfile = ~/.gitignore_global
+  mergeoptions = --no-edit
 [github]
-	user = nhap96
+  user = nhap96
 [alias]
-        ignore = update-index --skip-worktree
-        ; ignore = update-index --assume-unchanged
-        unignore = update-index --no-assume-unchanged
-        ignored = !git ls-files -v | grep "^[[:lower:]]"
-[rerere]
-	enabled = true
+  ignore = update-index --skip-worktree
+  ; ignore = update-index --assume-unchanged
+  unignore = update-index --no-assume-unchanged
+  ignored = !git ls-files -v | grep "^[[:lower:]]"
 [commit]
-	gpgsign = false
+  gpgsign = false
 [pass]
-	signcommits = true
+  signcommits = true
+[rerere]
+  enabled = true
+  autoupdate = true

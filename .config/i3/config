@@ -94,13 +94,16 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+set $workspace+grave "`"
 set $workspace1 "1: Terminals"
 set $workspace2 "2: Chromium"
+set $workspace3 "3: Viewer"
 
 # switch to workspace
+bindsym $mod+grave workspace $workspace+grave
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace 3
+bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -110,9 +113,10 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
+bindsym $mod+Shift+grave move container to workspace $workspace+grave
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -159,7 +163,10 @@ bindsym $mod+p mode "resize/precise"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+  position top
 	status_command i3status
+  #mode hide
+  workspace_buttons yes
 }
 
 # Start network manager applet
@@ -170,6 +177,7 @@ set $mode_launcher launch
 bindsym $mod+Tab mode "$mode_launcher"
 mode "$mode_launcher" {
     bindsym c exec chromium; mode "default"
+    bindsym shift+C exec chromium --incognito; mode "default"
     bindsym e exec emacs; mode "default"
     bindsym p exec caja; mode "default"
 
@@ -225,6 +233,7 @@ for_window [class="jetbrains-idea-ce"] border none
 focus_follows_mouse no
 
 assign [class="(C|c)hromium"] $workspace2
+assign [class="(E|e)macs"] $workspace3
 
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper
 # }}}
