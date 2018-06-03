@@ -214,9 +214,9 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 # }}}
 
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+# Audio controls
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Sreen brightness controls
