@@ -1,9 +1,10 @@
+# https://www.emacswiki.org/emacs/TrampMode
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
 # Environment variables {{{
 #export TERM=xterm-256color # When using with tmux, this breaks scrolling in ncmpcpp help interface
 export TERM=screen-256color
-export EDITOR=vim
+export EDITOR=emacs
 # }}}
 
 # zgen {{{
@@ -15,31 +16,31 @@ source "${HOME}/.zgen/zgen.zsh"
 
 # if the init scipt doesn't exist
 if ! zgen saved; then
-  echo "Creating a zgen save"
+    echo "Creating a zgen save"
 
-  # prezto options
-  zgen prezto editor key-bindings 'emacs'
-  zgen prezto prompt theme 'sorin'
-  zgen prezto '*:*' color 'yes'
-  #zgen prezto tmux:auto-start local 'yes'
+    # prezto options
+    zgen prezto editor key-bindings 'emacs'
+    zgen prezto prompt theme 'sorin'
+    zgen prezto '*:*' color 'yes'
+    #zgen prezto tmux:auto-start local 'yes'
 
-  # prezto and modules
-  zgen prezto
-  zgen prezto git
-  zgen prezto tmux
-  zgen prezto command-not-found
-  zgen prezto syntax-highlighting
-  zgen prezto history-substring-search
-  zgen prezto autosuggestions
-  
-  # plugins
-  #zgen load piotryordanov/fzf-mpd
-  #zgen load changyuheng/zsh-interactive-cd zsh-interactive-cd.plugin.zsh
-  zgen load clvv/fasd
-  zgen load carnager/rofi-pass
+    # prezto and modules
+    zgen prezto
+    zgen prezto git
+    zgen prezto tmux
+    zgen prezto command-not-found
+    zgen prezto syntax-highlighting
+    zgen prezto history-substring-search
+    zgen prezto autosuggestions
 
-  # generate the init script from plugins above
-  zgen save
+    # plugins
+    #zgen load piotryordanov/fzf-mpd
+    #zgen load changyuheng/zsh-interactive-cd zsh-interactive-cd.plugin.zsh
+    zgen load clvv/fasd
+    zgen load carnager/rofi-pass
+
+    # generate the init script from plugins above
+    zgen save
 fi
 # }}}
 
@@ -60,6 +61,8 @@ alias cf=config
 # }}}
 
 # fzf {{{
+# TODO: auto clone fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # fasd {{{
 # fasd & fzf change directory - open best matched file using `fasd` if given argument, filter output of `fasd` using `fzf` else
@@ -80,12 +83,12 @@ z() {
 
 # fkill - kill process {{{
 fkill() {
-  local pid
-  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
-  if [ "x$pid" != "x" ]
-  then
-    echo $pid | xargs kill -${1:-9}
-  fi
+    local pid
+    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    if [ "x$pid" != "x" ]
+    then
+	echo $pid | xargs kill -${1:-9}
+    fi
 }
 alias fk=fkill
 # }}}
@@ -96,24 +99,24 @@ alias fk=fkill
 #   pass -c **<TAB>
 # pass completion suggested by @d4ndo (#362)
 _fzf_complete_pass() {
-  _fzf_complete '+m' "$@" < <(
-    pwdir=${PASSWORD_STORE_DIR-~/.password-store/}
-    stringsize="${#pwdir}"
-    find "$pwdir" -name "*.gpg" -print |
-        cut -c "$((stringsize + 1))"-  |
-        sed -e 's/\(.*\)\.gpg/\1/'
-  )
+    _fzf_complete '+m' "$@" < <(
+	pwdir=${PASSWORD_STORE_DIR-~/.password-store/}
+	stringsize="${#pwdir}"
+	find "$pwdir" -name "*.gpg" -print |
+            cut -c "$((stringsize + 1))"-  |
+            sed -e 's/\(.*\)\.gpg/\1/'
+    )
 }
 [ -n "$BASH" ] && complete -F _fzf_complete_pass -o default -o bashdefault pass
 # }}}
 
 # mpd {{{
 fmpc() {
-  local song_position
-  song_position=$(mpc -f "%position%) %artist% - %title%" playlist | \
-    fzf-tmux --query="$1" --reverse --select-1 --exit-0 | \
-    sed -n 's/^\([0-9]\+\)).*/\1/p') || return 1
-  [ -n "$song_position" ] && mpc -q play $song_position
+    local song_position
+    song_position=$(mpc -f "%position%) %artist% - %title%" playlist | \
+			fzf-tmux --query="$1" --reverse --select-1 --exit-0 | \
+			sed -n 's/^\([0-9]\+\)).*/\1/p') || return 1
+    [ -n "$song_position" ] && mpc -q play $song_position
 }
 # }}}
 
@@ -122,13 +125,13 @@ fmpc() {
 #   - CTRL-O to open with `open` command,
 #   - CTRL-E or Enter key to open with the $EDITOR
 fo() {
-  local out file key
-  IFS=$'\n' out=($(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e))
-  key=$(head -1 <<< "$out")
-  file=$(head -2 <<< "$out" | tail -1)
-  if [ -n "$file" ]; then
-    [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
-  fi
+    local out file key
+    IFS=$'\n' out=($(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e))
+    key=$(head -1 <<< "$out")
+    file=$(head -2 <<< "$out" | tail -1)
+    if [ -n "$file" ]; then
+	[ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
+    fi
 }
 alias fe='EDITOR=emacs fo'
 # }}}
@@ -158,7 +161,7 @@ function emacs {
         fi
     done
     setsid emacsclient -n -a /usr/bin/emacs ${args[*]}
-} 
+}
 alias em=emacs
 alias ec=emacsclient
 # }}}
@@ -171,33 +174,30 @@ if which ruby >/dev/null 2>&1 && which gem >/dev/null 2>&1; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
- 
 countdown(){
     date1=$((`date +%s` + $1));
-    while [ "$date1" -ge `date +%s` ]; do 
-    ## Is this more than 24h away?
-    days=$(($(($(( $date1 - $(date +%s))) * 1 ))/86400))
-    echo -ne "$days day(s) and $(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r"; 
-    sleep 0.1
+    while [ "$date1" -ge `date +%s` ]; do
+	## Is this more than 24h away?
+	days=$(($(($(( $date1 - $(date +%s))) * 1 ))/86400))
+	echo -ne "$days day(s) and $(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+	sleep 0.1
     done
 }
 stopwatch(){
-    date1=`date +%s`; 
-    while true; do 
-    days=$(( $(($(date +%s) - date1)) / 86400 ))
-    echo -ne "$days day(s) and $(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
-    sleep 0.1
+    date1=`date +%s`;
+    while true; do
+	days=$(( $(($(date +%s) - date1)) / 86400 ))
+	echo -ne "$days day(s) and $(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
+	sleep 0.1
     done
 }
 
 mkcdir(){
     mkdir -p -- "$1" &&
-      cd -P -- "$1"
+	cd -P -- "$1"
 }
 
 export PATH="$HOME/.cargo/bin:$PATH"
