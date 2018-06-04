@@ -60,7 +60,7 @@ load {
 }
 
 cpu_usage {
-	format = "  - CPU: %usage"
+	format = "  - CPU: %usage"
 }
 
 disk "/" {
