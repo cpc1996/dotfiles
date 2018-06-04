@@ -1,0 +1,8 @@
+! expect Powerline but provide fallback
+URxvt.font: xft:DejaVu Sans Mono for Powerline:pixelsize=16,\
+            xft:Noto Sans Mono:pixelsize=16
+URxvt.letterSpace: -1
+URxvt.scrollBar: false
+URxvt*background: #353638
+URxvt*foreground: white
+
