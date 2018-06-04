@@ -11,7 +11,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (cdlatex auctex graphviz-dot-mode avy flycheck-irony company-irony irony undo-tree nlinum company helm yasnippet))))
+    (ranger cdlatex auctex graphviz-dot-mode avy flycheck-irony company-irony irony undo-tree nlinum company helm yasnippet))))
 ;; https://melpa.org/#/getting-started
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
@@ -37,7 +37,13 @@
 ;; ----- {{{
 ;; Theme
 (load-theme 'leuven)
-(set-face-attribute 'default nil :height 105)
+;; Set default font
+(set-face-attribute 'default nil
+                    :family "Source Code Pro for Powerline"
+                    ;; :family "Inconsolata for Powerline"
+                    :height 110
+                    :weight 'normal
+                    :width 'normal)
 ;; }}}
 
 ;; Auto start server if it's not running already
