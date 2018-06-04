@@ -24,6 +24,16 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; ---- {{{
+;; https://stackoverflow.com/questions/10092322/how-to-automatically-install-emacs-packages-by-specifying-a-list-of-package-name
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
+(dolist (package package-selected-packages)
+ (unless (package-installed-p package)
+   (package-install package)))
+;; }}}
+
 ;; ----- {{{
 ;; Theme
 (load-theme 'leuven)
@@ -116,26 +126,28 @@
 ;; }}}
 
 ;; ----- cfparser {{{
-(add-to-list 'load-path "/home/anh-phuc/git/github/gnull/cfparser")
-(require 'cf-mode)
-(add-hook 'find-file-hook 'cf-mode)  ; enable cf-mode for all open files
-(setq cf-test-command
-      (concat
-       "set -eo pipefail; "
-       ;; "g++ -g -Wall -Wextra -pedantic -std=c++11 -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fsanitize=address -fsanitize=undefined -fno-sanitize-recover -fstack-protector sol.cpp; "
-       ;; "g++ -g -Wall -Wextra -O2 -Wno-misleading-indentation -D_GLIBCXX_DEBUG -D_FORTIFY_SOURCE=2 sol.cpp; "
-       "g++ -g -Wall -Wextra -pedantic -std=c++17 -O2 -Wformat=2 -Wfloat-equal -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fsanitize=undefined -fno-sanitize-recover -fstack-protector -Wno-misleading-indentation sol.cpp; "
-       "for i in `ls *.in | sed 's/.in//'`; do "
-       "  echo \"\nTest #$i:\"; "
-       "  echo \"Running...\"; "
-       "  ./a.out < $i.in | tee out; "
-       "  if [[ -f $i.out ]]; then "
-       "    echo \"Checking...\"; "
-       "    diff -b out $i.out && rm -f out; "
-       "  else "
-       "    echo \"No output file...\"; "
-       "  fi; "
-       "done;"))
+(add-to-list 'load-path "~/git/github/gnull/cfparser")
+;; https://derdaniel.me/emcas-how-to-check-if-a-package-is-installed
+(when (package-installed-p 'cf-mode)
+  (require 'cf-mode)
+  (add-hook 'find-file-hook 'cf-mode)  ; enable cf-mode for all open files
+  (setq cf-test-command
+	(concat
+	 "set -eo pipefail; "
+	 ;; "g++ -g -Wall -Wextra -pedantic -std=c++11 -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fsanitize=address -fsanitize=undefined -fno-sanitize-recover -fstack-protector sol.cpp; "
+	 ;; "g++ -g -Wall -Wextra -O2 -Wno-misleading-indentation -D_GLIBCXX_DEBUG -D_FORTIFY_SOURCE=2 sol.cpp; "
+	 "g++ -g -Wall -Wextra -pedantic -std=c++17 -O2 -Wformat=2 -Wfloat-equal -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fsanitize=undefined -fno-sanitize-recover -fstack-protector -Wno-misleading-indentation sol.cpp; "
+	 "for i in `ls *.in | sed 's/.in//'`; do "
+	 "  echo \"\nTest #$i:\"; "
+	 "  echo \"Running...\"; "
+	 "  ./a.out < $i.in | tee out; "
+	 "  if [[ -f $i.out ]]; then "
+	 "    echo \"Checking...\"; "
+	 "    diff -b out $i.out && rm -f out; "
+	 "  else "
+	 "    echo \"No output file...\"; "
+	 "  fi; "
+	 "done;")))
 ;; }}}
 
 ;; ----- avy {{{
