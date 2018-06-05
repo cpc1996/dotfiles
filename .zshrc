@@ -162,8 +162,6 @@ function emacs {
     done
     setsid emacsclient -n -a /usr/bin/emacs ${args[*]}
 }
-alias em=emacs
-alias ec=emacsclient
 # }}}
 
 command -v hub >/dev/null 2>&1 && eval "$(hub alias -s)"

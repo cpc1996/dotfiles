@@ -2,8 +2,8 @@
 
 XkbModel=pc104
 XkbLayout=us,us
-XkbVariant=colemak,
-XkbOptions=caps:ctrl_modifier,lv3:ralt_alt #,terminate:ctrl_alt_bksp,grp:alt_space_toggle
+XkbVariant=,colemak
+XkbOptions=caps:ctrl_modifier,lv3:ralt_alt,grp:ctrls_toggle #,terminate:ctrl_alt_bksp
 
 echo "Changing keyboard settings using setxkbmap..."
 # This is for the current X session only and ideally should be sourced by .xprofile.
