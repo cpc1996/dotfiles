@@ -5,4 +5,5 @@ URxvt.letterSpace: -1
 URxvt.scrollBar: false
 URxvt*background: #353638
 URxvt*foreground: white
-
+! disable bottom padding
+URxvt.internalBorder: 0
