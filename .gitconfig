@@ -25,7 +25,7 @@
 [mergetool]
   prompt = false
 [core]
-  editor = vim
+  editor = emacs -nw
   excludesfile = ~/.gitignore_global
   mergeoptions = --no-edit
 [github]
