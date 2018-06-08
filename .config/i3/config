@@ -96,8 +96,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 set $workspace1 "1: Terminals"
-set $workspace2 "2: Chromium"
-set $workspace3 "3: Viewer"
+set $workspace2 "2: Browsers"
+set $workspace3 "3: Editors"
 set $workspace4 "4"
 set $workspace5 "5"
 set $workspace6 "6"
@@ -196,6 +196,7 @@ set $mode_launcher launch
 bindsym $mod+Tab mode "$mode_launcher"
 mode "$mode_launcher" {
     bindsym c exec chromium; mode "default"
+    bindsym f exec firefox; mode "default"
     bindsym shift+C exec chromium --incognito; mode "default"
     bindsym e exec emacs; mode "default"
     bindsym p exec caja; mode "default"
@@ -254,10 +255,13 @@ bindsym $mod+Escape mode "$mode_system"
 for_window [class="(E|e)macs"] border none
 for_window [class="(UR|ur)xvt"] border none
 for_window [class="(C|c)hromium"] border none
+for_window [class="Firefox"] border none
+for_window [class="(S|s)potify"] border none
 for_window [class="jetbrains-idea-ce"] border none
 focus_follows_mouse no
 
 assign [class="(C|c)hromium"] $workspace2
+assign [class="Firefox"] $workspace2
 assign [class="(E|e)macs"] $workspace3
 assign [class="rdesktop"] $workspace5
 
