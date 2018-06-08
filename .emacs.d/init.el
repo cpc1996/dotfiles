@@ -11,7 +11,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (ranger cdlatex auctex graphviz-dot-mode avy flycheck-irony company-irony irony undo-tree nlinum company helm yasnippet))))
+    (magit dracula-theme evil ranger cdlatex auctex graphviz-dot-mode avy flycheck-irony company-irony irony undo-tree nlinum company helm yasnippet))))
 ;; https://melpa.org/#/getting-started
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
@@ -30,13 +30,13 @@
 (unless package-archive-contents
   (package-refresh-contents))
 (dolist (package package-selected-packages)
- (unless (package-installed-p package)
-   (package-install package)))
+  (unless (package-installed-p package)
+    (package-install package)))
 ;; }}}
 
 ;; ----- {{{
 ;; Theme
-(load-theme 'leuven)
+(load-theme 'dracula t)
 ;; Set default font
 (set-face-attribute 'default nil
                     :family "Source Code Pro for Powerline"
@@ -162,6 +162,12 @@
 (global-set-key (kbd "C-M-;") 'avy-goto-char)
 (global-set-key (kbd "C-'") 'avy-goto-line)
 ;;}}}
+
+;; ----- evil {{{
+(setq evil-want-C-u-scroll t)
+(require 'evil)
+(evil-mode 1)
+;; }}}
 
 ;; ----- cdlatex {{{
 (setq cdlatex-simplify-sub-super-scripts nil)
