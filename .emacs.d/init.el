@@ -11,7 +11,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (gist minimap magit dracula-theme evil ranger cdlatex auctex graphviz-dot-mode avy flycheck-irony company-irony irony undo-tree nlinum company helm yasnippet))))
+    (markdown-mode gist minimap magit dracula-theme evil ranger cdlatex auctex graphviz-dot-mode avy flycheck-irony company-irony irony undo-tree nlinum company helm yasnippet))))
 ;; https://melpa.org/#/getting-started
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
