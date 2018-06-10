@@ -32,6 +32,7 @@ if ! zgen saved; then
     zgen prezto syntax-highlighting
     zgen prezto history-substring-search
     zgen prezto autosuggestions
+    zgen prezto completion
 
     # plugins
     #zgen load piotryordanov/fzf-mpd
