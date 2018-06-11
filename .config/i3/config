@@ -266,6 +266,10 @@ assign [class="(E|e)macs"] $ws3
 assign [class="rdesktop"] $ws5
 
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper
+
+# Highlight focused window
+# https://github.com/Airblader/i3/issues/126#issuecomment-277490570
+for_window [class="^.*"] border pixel 3
 # }}}
 
 # Custom floating windows {{{
