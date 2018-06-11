@@ -11,8 +11,10 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (markdown-mode gist minimap magit dracula-theme evil ranger cdlatex auctex graphviz-dot-mode avy flycheck-irony company-irony irony undo-tree nlinum company helm yasnippet))))
+    (evil-surround rust-mode markdown-mode gist minimap magit dracula-theme evil ranger cdlatex auctex graphviz-dot-mode avy flycheck-irony company-irony irony undo-tree company helm yasnippet))))
 ;; https://melpa.org/#/getting-started
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 ;; }}}
@@ -81,6 +83,9 @@
 ;; Disable tool bar
 (tool-bar-mode -1)
 
+;; Disable menu bar
+(menu-bar-mode -1)
+
 ;; Show Paren mode
 (show-paren-mode 1)
 
@@ -127,9 +132,9 @@
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
 ;; }}}
 
-;; ----- nlinum {{{
-(add-hook 'prog-mode-hook 'nlinum-mode)
-;; }}}
+;; ----- nlinum-relative {{{
+(add-hook 'prog-mode-hook 'nlinum-relative-mode)
+;; }}
 
 ;; ----- avy {{{
 (avy-setup-default)
@@ -139,9 +144,15 @@
 ;;}}}
 
 ;; ----- evil {{{
+;; Disable visual-mode automatically copies selected text
+;; https://stackoverflow.com/a/38286385
+(fset 'evil-visual-update-x-selection 'ignore)
 (setq evil-want-C-u-scroll t)
 (require 'evil)
 (evil-mode 1)
+;; ----- +++++ evil-surround {{{
+(add-hook 'prog-mode-hook 'turn-on-evil-surround-mode)
+;; }}}
 ;; }}}
 
 ;; https://www.emacswiki.org/emacs/RecentFiles
