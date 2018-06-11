@@ -134,14 +134,14 @@
 
 ;; ----- nlinum-relative {{{
 (add-hook 'prog-mode-hook 'nlinum-relative-mode)
-;; }}
+;; }}}
 
 ;; ----- avy {{{
 (avy-setup-default)
 (global-set-key (kbd "C-;") 'avy-goto-char-2)
 (global-set-key (kbd "C-M-;") 'avy-goto-char)
 (global-set-key (kbd "C-'") 'avy-goto-line)
-;;}}}
+;; }}}
 
 ;; ----- evil {{{
 ;; Disable visual-mode automatically copies selected text
@@ -172,4 +172,4 @@
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 (load-library "cdlatex")
 (load-library "cfparser")
-;; }}
+;; }}}
