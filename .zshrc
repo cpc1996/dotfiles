@@ -1,6 +1,8 @@
 # https://www.emacswiki.org/emacs/TrampMode
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
+fpath+=~/.zfunc
+
 # Environment variables {{{
 #export TERM=xterm-256color # When using with tmux, this breaks scrolling in ncmpcpp help interface
 export TERM=screen-256color
@@ -200,3 +202,4 @@ mkcdir(){
 }
 
 export PATH="$HOME/.cargo/bin:$PATH"
+command -v rustc > /dev/null 2>&1 && export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"

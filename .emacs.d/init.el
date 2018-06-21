@@ -11,7 +11,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (nlinum-relative evil-surround rust-mode markdown-mode gist minimap magit dracula-theme evil ranger cdlatex auctex graphviz-dot-mode avy flycheck-irony company-irony irony undo-tree company helm yasnippet))))
+    (flycheck-inline cargo racer flycheck-rust nlinum-relative evil-surround rust-mode markdown-mode gist minimap magit dracula-theme evil ranger cdlatex auctex graphviz-dot-mode avy flycheck-irony company-irony irony undo-tree company helm yasnippet))))
 
 ;; https://melpa.org/#/getting-started
 (require 'package)
@@ -50,7 +50,7 @@
 (set-face-attribute 'default nil
                     :family "Source Code Pro for Powerline"
                     ;; :family "Inconsolata for Powerline"
-                    :height 110
+                    :height 105
                     :weight 'normal
                     :width 'normal)
 ;; }}}
@@ -126,17 +126,47 @@
 (setq company-idle-delay 0) ;; This is believed to be power-comsuming
 ;; }}}
 
-;; ----- irony-mode {{{
+;; ----- irony {{{
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'c-mode-hook 'irony-mode)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-;; company-irony
+;; ----- company-irony {{{
 (eval-after-load 'company
   '(add-to-list 'company-backends 'company-irony))
-;; flycheck & flycheck-irony
-(global-flycheck-mode)
+;; }}}
+;; ----- flycheck-irony {{{
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+;; }}}
+;; }}}
+
+;; ----- flycheck-rust {{{
+(with-eval-after-load 'rust-mode
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+;; }}}
+
+;; ----- flycheck-inline {{{
+(with-eval-after-load 'flycheck
+  (flycheck-inline-mode))
+;; }}}
+
+;; ----- racer {{{
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+
+(add-hook 'racer-mode-hook #'company-mode)
+
+(require 'rust-mode)
+(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+(setq company-tooltip-align-annotations t)
+;; }}}
+
+;; ----- cargo {{{
+(add-hook 'rust-mode-hook 'cargo-minor-mode)
+;; }}}
+
+;; ----- flycheck {{{
+(global-flycheck-mode)
 ;; }}}
 
 ;; ----- nlinum-relative {{{
