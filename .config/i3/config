@@ -280,10 +280,10 @@ for_window [class="rdesktop"] floating disable, border normal
 
 # Move mode {{{
 mode "move" {
-    bindsym i move up 20px
-    bindsym n move left 20px
-    bindsym e move down 20px
-    bindsym o move right 20px
+    bindsym k move up 20px
+    bindsym h move left 20px
+    bindsym j move down 20px
+    bindsym l move right 20px
     bindsym Mod4+m mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
