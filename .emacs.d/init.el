@@ -11,7 +11,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (flycheck-inline cargo racer flycheck-rust nlinum-relative evil-surround rust-mode markdown-mode gist minimap magit dracula-theme evil ranger cdlatex auctex graphviz-dot-mode avy flycheck-irony company-irony irony undo-tree company helm yasnippet))))
+    (multiple-cursors company-coq flycheck-inline cargo racer flycheck-rust nlinum-relative evil-surround rust-mode markdown-mode gist minimap magit dracula-theme evil ranger cdlatex auctex graphviz-dot-mode avy flycheck-irony company-irony irony undo-tree company helm yasnippet))))
 
 ;; https://melpa.org/#/getting-started
 (require 'package)
@@ -192,6 +192,14 @@
 ;; }}}
 ;; }}}
 
+;; ----- multiple-cursors {{{
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+;; }}}
+
 ;; https://www.emacswiki.org/emacs/RecentFiles
 (recentf-mode 1)
 (setq recentf-max-menu-items 100
@@ -207,6 +215,13 @@
 
 ;; ----- {{{
 (add-to-list 'load-path "~/.emacs.d/elisp/")
-(load-library "cdlatex")
+;; (load-library "cdlatex")
 (load-library "cfparser")
+;; Open .v files with Proof General's Coq mode
+(load "~/.emacs.d/lisp/PG/generic/proof-site")
 ;; }}}
+
+;; ----- {{{
+;; (load "auctex.el" nil t t)
+;; (load "preview-latex.el" nil t t)
+;; ;; }}}
