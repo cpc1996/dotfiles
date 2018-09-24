@@ -215,7 +215,7 @@
 
 ;; ----- {{{
 (add-to-list 'load-path "~/.emacs.d/elisp/")
-;; (load-library "cdlatex")
+(load-library "cdlatex-el")
 (load-library "cfparser")
 ;; Open .v files with Proof General's Coq mode
 (load "~/.emacs.d/lisp/PG/generic/proof-site")
