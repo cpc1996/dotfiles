@@ -264,6 +264,7 @@ assign [class="(C|c)hromium"] $ws2
 assign [class="Firefox"] $ws2
 assign [class="(E|e)macs"] $ws3
 assign [class="rdesktop"] $ws5
+assign [class="jetbrains-idea-ce"] $ws3
 
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper
 
