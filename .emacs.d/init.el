@@ -11,7 +11,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (multiple-cursors company-coq flycheck-inline cargo racer flycheck-rust nlinum-relative evil-surround rust-mode markdown-mode gist minimap magit dracula-theme evil ranger cdlatex auctex graphviz-dot-mode avy flycheck-irony company-irony irony undo-tree company helm yasnippet))))
+    (scala-mode multiple-cursors company-coq flycheck-inline cargo racer flycheck-rust nlinum-relative evil-surround rust-mode markdown-mode gist minimap magit dracula-theme evil ranger cdlatex auctex graphviz-dot-mode avy flycheck-irony company-irony irony undo-tree company helm yasnippet))))
 
 ;; https://melpa.org/#/getting-started
 (require 'package)
